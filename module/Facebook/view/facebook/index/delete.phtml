@@ -1,0 +1,23 @@
+<div class="content">
+<?php
+ $title = "Usuń Posta";
+ $this->headTitle($title);
+?>
+    <div class="title">
+      <h1><?php echo $this->escapeHtml($title); ?></h1>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <form action="" method="post">
+                   <input type="submit" name="delete" value="Delete" class="btn btn-primary" />
+                </form>
+            </td>
+            <td>
+               <?php
+                   echo $messages;
+               ?>
+            </td>
+        </tr>
+    </table>
+</div>

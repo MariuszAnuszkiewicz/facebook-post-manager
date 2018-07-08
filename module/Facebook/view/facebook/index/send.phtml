@@ -1,0 +1,34 @@
+<?PHP
+use Zend\Form\Element;
+?>
+<div class="content">
+<?php
+ $title = "Wyślij Posta";
+ $this->headTitle($title);
+?>
+<div class="title">
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+</div>
+<?php
+ $form = $this->form;
+
+ $link = new Element\Text('my-text');
+ $link->setLabel('Link')->setLabelAttributes(array('class' => 'linkName'));
+
+ $message = new Element\Text('my-text');
+ $message->setLabel('Message')->setLabelAttributes(array('class' => 'message'));
+
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formLabel($link);
+ echo $this->formRow($form->get('link_name'));
+ echo $this->formElementErrors($form->get('link_name'), array('class' => 'form-validation-error'));
+ echo $this->formLabel($message);
+ echo $this->formRow($form->get('message'));
+ echo $this->formElementErrors($form->get('message'), array('class' => 'form-validation-error'));
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
+
+?>
+</div>

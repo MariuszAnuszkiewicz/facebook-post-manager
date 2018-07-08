@@ -1,0 +1,24 @@
+<div class="content">
+<?php
+    $title = "Edycja Postów do Facebooka";
+    $this->headTitle($title);
+?>
+    <div class="title">
+        <h1><?php echo $this->escapeHtml($title); ?></h1>
+    </div>
+<?php
+    $form = $this->form;
+    $form->prepare();
+    $form->setAttribute('id', 'edit_form');
+    $form->get('link_name')->setAttribute('id', 'edit_link');
+    $form->get('message')->setAttribute('id', 'edit_message');
+    $form->get('submit')->setAttribute('id', 'edit_submit');
+    $form->get('link_name')->setValue('www.bit-sa.pl');
+    $form->get('message')->setValue($this->messages);
+    echo $this->form()->openTag($form);
+    echo $this->formRow($form->get('link_name'));
+    echo $this->formRow($form->get('message'));
+    echo $this->formSubmit($form->get('submit'));
+    echo $this->form()->closeTag($form);
+?>
+</div>
